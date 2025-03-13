@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Y</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap'); /* 동일한 폰트 */
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: white;
+        }
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            overflow: hidden;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+        .hover-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .image-container:hover .hover-image {
+            opacity: 1;
+        }
+
+        /* 터치 문구 스타일 */
+        .touch-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 6px 15px;
+            border-radius: 6px;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: fadeInOut 6s infinite ease-in-out;
+            white-space: nowrap;
+            opacity: 0;
+        }
+
+        /* 문구 점멸 애니메이션 */
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            50% { opacity: 0.7; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container" onclick="goToPage()">
+        <img src="img/img5.jpg" alt="Page img5" class="main-image">
+        <img src="img/hover-image5.jpg" alt="hover-image5" class="hover-image">
+        
+        <!-- 터치 문구 추가 -->
+        <div class="touch-text">터치하여 편지를 열어보세요</div>
+    </div>
+
+    <script>
+        function goToPage() {
+            setTimeout(() => {
+                window.location.href = "page5-2.html"; // 이동할 페이지
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
